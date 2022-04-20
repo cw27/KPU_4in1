@@ -1,0 +1,18 @@
+<tutorial>IDE로컬파일
+	<images>
+		<0>일반이미지<0>
+		<1>화재이미지<1>
+		<2>연기이미지<2>
+		<annotated>
+			<test>
+			<train>
+		<test>
+			<0>
+			<1>
+			<2>
+		imageAnnotationProcess.py
+	</images>
+classes.txt
+DuplicatedImageRemover.py
+Image_crawling.py
+	
