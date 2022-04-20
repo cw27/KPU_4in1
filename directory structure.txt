@@ -1,8 +1,8 @@
-<tutorial>IDE로컬파일
+<tutorial>IDE로컬폴더
 	<images>
-		<0>일반이미지<0>
-		<1>화재이미지<1>
-		<2>연기이미지<2>
+		<0>일반이미지
+		<1>화재이미지
+		<2>연기이미지
 		<annotated>
 			<test>
 			<train>
