@@ -7,7 +7,7 @@ from _thread import *
 IMG_SIZE = 224
 enclosure_queue = Queue()
 
-#카메라로부터 영상을 읽어서 queue에 넣는 쓰레드가 수행하는 함수
+# 카메라로부터 영상을 읽어서 queue에 넣는 쓰레드가 수행하는 함수
 def webcam_input(queue):
     capture = cv2.VideoCapture('./fire and smoke.mp4')
     speed = 6
@@ -65,9 +65,9 @@ PORT = 9999
 
 # 소켓 생성 및 연결
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # 소켓 객체 생성. 주소 체계로 IPv4, 소켓 타입으로 TCP 사용
+# 소켓 객체 생성. 주소 체계로 IPv4, 소켓 타입으로 TCP 사용
 client_socket.connect((HOST, PORT))
-    # 지정한 HOST와 PORT를 사용하여 서버에 접속
+# 지정한 HOST와 PORT를 사용하여 서버에 접속
 
 print('client start')
 
