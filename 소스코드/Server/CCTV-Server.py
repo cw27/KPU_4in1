@@ -90,7 +90,7 @@ while True:
     image = image[tf.newaxis, ...]
     decimg = cv2.cvtColor(decimg, cv2.COLOR_BGR2RGB)
 
-    # 데이터 입력및 분류
+    # 데이터 입력 및 분류
     prediction = model.predict(image)
     pred_label = int(tf.argmax(prediction[0][:3]))
     pred_local = prediction[0][3:]
