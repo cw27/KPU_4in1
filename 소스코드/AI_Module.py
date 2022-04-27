@@ -83,6 +83,7 @@ while True:
             elif pred_label == 1:
                 frame = cv2.rectangle(frame, (0, 0), (80, 40), (255, 255, 255), cv2.FILLED)
                 frame = cv2.putText(frame, "Fire!!", (0, 30), cv2.FONT_ITALIC, 1, (0, 0, 255), 3)
+                # 화재 부분 rectangle
                 pred_x = pred_local[0]
                 pred_y = pred_local[1]
                 pred_w = pred_local[2]
