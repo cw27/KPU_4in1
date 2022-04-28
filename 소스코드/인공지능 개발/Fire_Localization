@@ -1,0 +1,666 @@
+지은
+#6011
+
+박보성 — 2022.04.20.
+그리고 차선책으로 이것도 찾아봤는데 https://github.com/amaanabbasi/Image-Classifier
+GitHub
+GitHub - amaanabbasi/Image-Classifier: Keras Image Classifier, tran...
+Keras Image Classifier, transfer learning using pretrained CNN, &quot;RestNet50&quot;. - GitHub - amaanabbasi/Image-Classifier: Keras Image Classifier, transfer learning using pretrained CN...
+GitHub - amaanabbasi/Image-Classifier: Keras Image Classifier, tran...
+이게 맞는지는 모르겠어요
+지은 — 2022.04.20.
+아뇨 그거 그냥 오늘접는게
+나을것같아요
+저는 오늘 localization.py돌려볼건데 세분 다 이미지작업해도 될것 같아요 교수님이 가능한 한 많이 넣으라고 하셔서
+제가쓰는 py 소스코드 저희 깃허브에 우선 올릴게요
+그리고 각자 코드 맡아서 질문에 대답할 수 있게 분석하라고 하셔서 이것도 분업어떻게 할지 생각해봐요!
+깃헙 폴더에 넣는법 모르겠어서 우선  폴더밖에 올려놨어요
+박보성 — 2022.04.20.
+크롤링해서 이미지 작업 할게요.
+지은 — 2022.04.20.
+넵 세분이서 이미지작업 분업하기 애매하면 한분 화재이미지작업 한분 연기이미지작업 해서두분하고 저랑 같이 localization돌려도 괜찮을것같아요
+정예진 — 2022.04.20.
+크롤링할 때, NUM = 100 숫자 바꾸면 이미지 많이 되야 하는데 늘려도 70개 정도 밖에 크롤링이 안돼요 보성님 크롤링 갯수 늘렸을 때 되셨나요 ??
+지은 — 2022.04.20.
+그리고 깃허브에 제 디렉토리 설정 따로올렸습니다 아마 제가 올린 image_crawling.py도 저거대로 수정되어 있을 거예요
+박보성 — 2022.04.20.
+갯수 세보지는 않았는데 된 것 같긴 해요 다시 해볼게요
+정예진 — 2022.04.20.
+되셨나요 ??
+박보성 — 2022.04.20.
+10개 했을때 11개 100개 했을때 101개정도
+김채원 — 2022.04.20.
+NUM값 크게 줬을 땐 어떻게 나오세요?
+박보성 — 2022.04.20.
+1만 해볼게요 잠시만요
+김채원 — 2022.04.20.
+제가 했을 땐 10만 -> 834개 / 100만 -> 836개 성공 떴어요
+김채원 — 2022.04.20.
+10만 이후론 크롤링 되는 이미지 수는 비슷한 거 같아요
+NUM 값 10 단위로 2장 차이나는 정도인 거 같슴다
+박보성 — 2022.04.20.
+10만 했을때 742개요 100만 -> 742
+김채원 — 2022.04.20.
+비슷하네요! NUM값 10만 두고 하면 되겠네용
+정예진 — 2022.04.20.
+제가 계속 크롤링해보고 잘 안돼서 채원님한테도 파일 받아서 돌려봤는데 갯수 늘려도 계속 70개 정도 밖에 크롤링이 안된다고 뜨네요 ,, ㅠㅠㅠ 그럼 일단 보성님이랑 채원님이 불꽃이랑 연기 나눠서 분류해주시고 제가 지은님이랑 localization 돌려봐도 될까요 ?
+박보성 — 2022.04.20.
+알겠습니다
+지은 — 2022.04.20.
+저희 오늘 일찍 끝내기로 했으니까 2시까지 할까요?
+정예진 — 2022.04.20.
+넵 !
+박보성 — 2022.04.20.
+이미지
+불꽃 이 정도 분류했고 오늘안에 가능한 끝낼게요 
+먼저 가보겠습니다.
+지은 — 2022.04.20.
+다들 수고하셨어요!
+정예진 — 2022.04.20.
+수고하셨습니다-!
+김채원 — 2022.04.20.
+고생 많으셨습니다!
+박보성 — 2022.04.21.
+시험 힘내세요.
+지은 — 2022.04.25.
+저 오늘 시험이랑 과제할 게 있어가지구 12시까지만 회의 참여해도 될까요?
+갸아아악
+김채원 — 2022.04.25.
+넵 좋아요!
+아 그리구 저희 수요일 회의는 학교에서 대면으로 하는 걸로 해요!
+지은 — 2022.04.25.
+네 좋아요
+정예진 — 2022.04.25.
+네 알겠습니당
+박보성 — 어제 오전 1:06
+첨부 파일 형식: archive
+605654146aeee831.zip
+6.17 MB
+박보성 — 어제 오전 1:38
+연기 분류 작업 금방 끝내고 Localization 할게요 
+첨부 파일 형식: archive
+ab9a1fd0c57fff8b.zip
+3.49 MB
+지은 — 어제 오전 8:28
+어노테이션돌리고나서 어노테이션 프로세스.py도 돌려줘!
+지은 — 어제 오후 2:06
+imageannotation 390 / fire_classification 293
+process 57
+image_crawling 142
+duplicated 51
+ai_module 100
+
+현재 코드 분석 진행중인 코드 목록 cctv-client/image_crawling/duplicated 
+박보성 — 어제 오후 2:09
+from PIL import Image
+import imagehash
+import os
+import numpy as np
+# 파이썬 이미지 처리 PIL(pillow)를 이용한다.
+# imagehash를 이용하여 비슷한 이미지를 찾는다.
+#   - Image hash 알고리즘은 이미지 구조의 휘도, 색의 분배와 비율을 분석한다. 
+# os 모듈을 이용해 운영체제에서 제공되는 여러 기능을 파이썬 코드 내에서 수행할 수 있도록 한다.
+# numpy를 이용하면 배열과 행렬의 덧셈, 뺄셈 곱셈, 나눗셈 등 연산을 사용할 수 있다.
+
+class DuplicateRemover:
+    def init(self, dirname, hash_size=8):
+        self.dirname = dirname
+        self.hash_size = hash_size # 폴더 이름과 hash 크기를 초기화한다.
+
+    def find_duplicates(self):
+        """
+        Find and Delete Duplicates
+        """
+
+        fnames = os.listdir(self.dirname) # 지정한 디렉토리 내 모든 파일과 디렉토리 리스트(list)를 리턴한다.
+        hashes = {}
+        duplicates = []
+        print("Finding Duplicates Now!\n")
+        for image in fnames: # fnames 리스트 안에 있는 이미지를 반복문을 이용하여 관리한다.
+            with Image.open(os.path.join(self.dirname, image)) as img: 
+                temp_hash = imagehash.average_hash(img, self.hash_size) # hash_size를 회색 이미지로 변화, 축소하고 평균값을 계산하고
+                # 왼쪽에서 오른쪽으로 픽셀을 하나씩 검사한다.
+                if temp_hash in hashes:
+                    print("Duplicate {} \nfound for Image {}!\n".format(image, hashes[temp_hash]))
+                    duplicates.append(image) #
+                else:
+                    hashes[temp_hash] = image # 중복이 아니면 hashes[temp_hash]에 이미지를 넣는다.
+
+        if len(duplicates) != 0:
+            a = input("Do you want to delete these {} Images? Press Y or N:  ".format(len(duplicates)))
+            space_saved = 0
+if (a.strip().lower() == "y"):
+                for duplicate in duplicates:
+                    space_saved += os.path.getsize(os.path.join(self.dirname, duplicate))
+                    # 파일의 크기(size)를 받아온다.
+                    os.remove(os.path.join(self.dirname, duplicate)) # os 라이브러리를 사용하여 중복 제거한다.
+                    print("{} Deleted Succesfully!".format(duplicate))
+
+                print("\n\nYou saved {} mb of Space!".format(round(space_saved / 1000000), 2))
+            else:
+                print("Thank you for Using Duplicate Remover")
+        else:
+            print("No Duplicates Found :(")
+
+dirname = "./images/1" # 현재 파일에 있는 images 안에 있는 파일 /1을 참조한다.
+
+# Remove Duplicates 중복 제거!
+dr = DuplicateRemover(dirname) # dr 변수 안에 dirname을 초기화한다.
+dr.find_duplicates() # 중복을 찾고 제거한다.
+지은 — 어제 오후 2:13
+https://github.com/cw27/KPU_4in1
+GitHub
+GitHub - cw27/KPU_4in1
+Contribute to cw27/KPU_4in1 development by creating an account on GitHub.
+GitHub - cw27/KPU_4in1
+박보성 — 어제 오후 3:22
+''' import glob # glob 모듈의 glob 함수는  사용자가 제시한 조건에 맞는 파일의 이름을 리스트 형식으로 반환한다.
+ import os # os 모듈을 이용하여 운영체제가 지원하는 기능을 사용하여 디렉토리를 만들거나 옮기기 위한 기능을 제공한다.
+ import sys # 파이썬 인터프리터가 제공하는 변수나 함수를 제어할 수 있는 방법을 제공한다.
+def process(current_dir):
+ percentage_test = 10;
+ ‐----------------------
+index_test = round(100/percentage_test) # 반올림한다.
+for pathAndFilename in glob.iglob(os.path.join(current_dir, "*.jpg)) 실제로 동시에 모든 값을 저장하지 않고 glob과 동일한 값을 생성한다.
+title.ext = os.path.splitext(os.path.basename(pathAndFilename) # 파일의 경로를 os.path.splitext 함수의 매개 변수로 넣어두면 두 개의 값이 반환되고 두 번째 값이 파일의 확장자
+지은 — 어제 오후 7:07
+IndexError: index 0 is out of bounds for axis 0 with size 0
+Traceback (most recent call last):
+  File "C:\Users\zziya\code1\tutorial\AI_Module.py", line 69, in <module>
+    pred_x = pred_local[0]
+IndexError: index 0 is out of bounds for axis 0 with size 0
+지은 — 어제 오후 7:40
+ValueError: Unexpected result of train_function (Empty logs). Please use Model.compile(..., run_eagerly=True), or tf.config.run_functions_eagerly(True) for more information of where went wrong, or file a issue/bug to tf.keras.
+지은 — 오늘 오후 2:33
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ preprocessing (Lambda)      (None, 224, 224, 3)       0         
+                                                                 
+ inception_resnet_v2 (Functi  (None, 5, 5, 1536)       54336736  
+ onal)                                                           
+                                                                 
+ global_average_pooling2d (G  (None, 1536)             0         
+ lobalAveragePooling2D)                                          
+                                                                 
+ dense (Dense)               (None, 3)                 4611      
+                                                                 
+=================================================================
+Total params: 54,341,347
+Trainable params: 54,280,803
+Non-trainable params: 60,544
+_________________________________________________________________
+접기
+modelsummary1651051675.txt
+2KB
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ conv2d (Conv2D)             (None, 224, 224, 32)      896       
+                                                                 
+ max_pooling2d (MaxPooling2D  (None, 112, 112, 32)     0         
+ )                                                               
+                                                                 
+ conv2d_1 (Conv2D)           (None, 112, 112, 64)      18496     
+                                                                 
+ max_pooling2d_1 (MaxPooling  (None, 56, 56, 64)       0         
+ 2D)                                                             
+                                                                 
+ conv2d_2 (Conv2D)           (None, 56, 56, 128)       73856     
+                                                                 
+ max_pooling2d_2 (MaxPooling  (None, 28, 28, 128)      0         
+ 2D)                                                             
+                                                                 
+ conv2d_3 (Conv2D)           (None, 28, 28, 256)       295168    
+                                                                 
+ max_pooling2d_3 (MaxPooling  (None, 14, 14, 256)      0         
+ 2D)                                                             
+                                                                 
+ conv2d_4 (Conv2D)           (None, 14, 14, 256)       590080    
+                                                                 
+ max_pooling2d_4 (MaxPooling  (None, 7, 7, 256)        0         
+ 2D)                                                             
+                                                                 
+ flatten (Flatten)           (None, 12544)             0         
+                                                                 
+ dense (Dense)               (None, 1024)              12846080  
+                                                                 
+ batch_normalization (BatchN  (None, 1024)             4096      
+ ormalization)                                                   
+                                                                 
+ activation (Activation)     (None, 1024)              0         
+                                                                 
+ dropout (Dropout)           (None, 1024)              0         
+                                                                 
+ dense_1 (Dense)             (None, 4)                 4100      
+                                                                 
+=================================================================
+Total params: 13,832,772
+Trainable params: 13,830,724
+Non-trainable params: 2,048
+_________________________________________________________________
+접기
+modelsummary_L_1651113386.txt
+3KB
+위에가 classification 아래가 localization
+이미지
+이미지
+김채원 — 오늘 오후 2:34
+정확도 그래프
+김채원 — 오늘 오후 3:14
+Localization.py 주석 미완성 
+import os
+
+import numpy as np
+from PIL import Image
+import random
+import matplotlib.pyplot as plt
+확장
+message.txt
+17KB
+박보성 — 오늘 오후 4:33
+import os # 디렉터리 경로, 파일을 활용을 운영체제가 지원하는 모듈을 이용한다.
+
+import numpy as np 
+# 파이썬으로 진행되는 데이터 분석과 인공지능 학습을 위해 numpy 도구를 이용한다.
+고성능 계산, 일반 List에 비해 빠르고 효율적인 메모리 관리, Array 연산을 지원하므로
+numpy를 사용한다. 
+확장
+message.txt
+18KB
+﻿
+import os # 디렉터리 경로, 파일을 활용을 운영체제가 지원하는 모듈을 이용한다.
+
+import numpy as np 
+# 파이썬으로 진행되는 데이터 분석과 인공지능 학습을 위해 numpy 도구를 이용한다.
+고성능 계산, 일반 List에 비해 빠르고 효율적인 메모리 관리, Array 연산을 지원하므로
+numpy를 사용한다. 
+from PIL import Image
+# 픽셀 단위, 이미지 필터 조작을 위해 PIL을 사용한다.
+이미지 출력 및 불러오기
+import random
+#버퍼에서 다음 요소를 무작위로 선택하기 위해, 랜덤 함수 이용
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+# 그래프를 만들고 이용하기 위한 모듈이다.
+patches를 이용하여 2D 도형을 표현한다.
+import xml.etree.ElementTree as et
+#xml 파일을 사용하기 위한 모듈이다.
+
+import tensorflow as tf #텐서플로우를 import as tf하면 그래프가 만들어진다.
+from tensorflow import keras
+#딥러닝을 하기 위해 keras 파이썬 라이브러리를 사용한다.
+
+import re # 정규 표현식을 사용하기 위한 모듈
+import shutil # 파일 복사와 삭제를 지원하는 함수 제공
+
+from tqdm.notebook import tqdm
+# 시간이 얼마나 남았는지 혹은 진행도를 확인하기 위해 사용한다.
+from pandas import DataFrame
+import pandas as pd
+import time
+
+# Train set : 모델을 학습하기 위한 dataset
+# Validation set : 학습이 이미 완료된 모델을 검증하기 위한 dataset
+
+#데이터 준비
+IMG_SIZE = 224
+cur_dir = os.getcwd()   # os.getcwd() : 현재 작업 디렉토리 확인
+data_dir = os.path.join(cur_dir, 'C:\\Users\\zziya\\code1\\tutorial\\images\\annotated')
+train_dir = os.path.join(data_dir, 'train\\1_xml')  # os.path.join() : 파일명과 경로를 합침
+train_img_files = sorted([imgname for imgname in os.listdir(train_dir) if os.path.splitext(imgname)[-1] == '.jpg'])
+train_ano_files = sorted([anoname for anoname in os.listdir(train_dir) if os.path.splitext(anoname)[-1] == '.xml'])
+    # sorted() : 첫 번째 매개변수로 들어온 반복가능한 데이터를 새로운 정렬된 리스트로 만들어서 반환
+dataset_files = list(zip(train_img_files,train_ano_files))
+random.shuffle(dataset_files)
+    # shuffle() : 고정 크기의 버퍼를 유지하면서 해당 버퍼에서 다음 요소를 무작위로 선택, 결과 확인을 위해 데이터에 인덱스를 추가
+
+#데이터 수 계산
+N_TRAIN = 3 * (len(train_img_files) // 4)
+N_VAL = len(train_img_files) - N_TRAIN
+
+train_files = dataset_files[:N_TRAIN]
+val_files = dataset_files[N_TRAIN:]
+
+#tfrecord
+tfr_dir = os.path.join(data_dir,'tfrecord_afterX6')
+os.makedirs(tfr_dir, exist_ok = True)   # os.makedirs() : 모든 하위 폴더 생성
+
+tfr_train_dir = os.path.join(tfr_dir,'loc_train.tfr')
+tfr_val_dir =os.path.join(tfr_dir,'loc_val.tfr')
+
+# TFRecordWriter() : 데이터를 읽어 파일에 write
+writer_train = tf.io.TFRecordWriter(tfr_train_dir)
+writer_val = tf.io.TFRecordWriter(tfr_val_dir)
+
+# string, byte 타입으로부터 BytesList 리턴
+def _bytes_feature(value):
+    if isinstance(value, type(tf.constant(0))):
+        value = value.numpy()
+    return tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))
+
+# float(32), double(64) 타입으로부터 FloatList 리턴
+def _float_feature(value):
+    return tf.train.Feature(float_list=tf.train.FloatList(value=[value]))
+
+# bool, enum, int32, int64, uint64 타입으로부터 Int64List 리턴
+def _int64_feature(value):
+    return tf.train.Feature(int64_list=tf.train.Int64List(value=[value]))
+
+for img_file, ano_file in tqdm(train_files):
+    ano_path = os.path.join(train_dir, ano_file)    # os.path.join() : 파일명과 경로를 합침
+    tree = et.parse(ano_path)   # parse() : 객체를 변환
+    root = tree.getroot()   # getroot() : 해당 트리의 root를 반환
+    width = float(tree.find('./size/width').text)
+    height = float(tree.find('./size/height').text)
+
+    for object in root.iter('object'):
+        xmin = int(object.find('bndbox').findtext('xmin'))
+        ymin = int(object.find('bndbox').findtext('ymin'))
+        xmax = int(object.find('bndbox').findtext('xmax'))
+        ymax = int(object.find('bndbox').findtext('ymax'))
+
+    xc = (xmin + xmax) / 2
+    yc = (ymin + ymax) / 2
+    x = xc / width
+    y = yc / height
+    w = (xmax - xmin) / width
+    h = (ymax - ymin) / height
+
+    img_path = os.path.join(train_dir, img_file)
+    image = Image.open(img_path)
+    image = image.resize((IMG_SIZE, IMG_SIZE))
+    bimage = image.tobytes()    # 바이트 객체로 이미지 반환, encoder = "raw"가 디폴트
+
+    cls_num = 1
+
+    example = tf.train.Example(features=tf.train.Features(feature={
+        'image': _bytes_feature(bimage),
+        'cls_num': _int64_feature(cls_num),
+        'x': _float_feature(x),
+        'y': _float_feature(y),
+        'w': _float_feature(w),
+        'h': _float_feature(h)
+    }))
+
+    writer_train.write(example.SerializeToString())
+        # SerializeToString() 메서드를 이용하여 문자열로 직렬화함
+
+writer_train.close()
+
+for img_file, ano_file in tqdm(val_files):
+    ano_path = os.path.join(train_dir, ano_file)
+    tree = et.parse(ano_path)
+    width = float(tree.find('./size/width').text)
+    height = float(tree.find('./size/height').text)
+
+    for object in root.iter('object'):
+        xmin = int(object.find('bndbox').findtext('xmin'))
+        ymin = int(object.find('bndbox').findtext('ymin'))
+        xmax = int(object.find('bndbox').findtext('xmax'))
+        ymax = int(object.find('bndbox').findtext('ymax'))
+
+    xc = (xmin + xmax) / 2
+    yc = (ymin + ymax) / 2
+    x = xc / width
+    y = yc / height
+    w = (xmax - xmin) / width
+    h = (ymax - ymin) / height
+
+    img_path = os.path.join(train_dir, img_file)
+    image = Image.open(img_path)
+    image = image.resize((IMG_SIZE, IMG_SIZE))
+    bimage = image.tobytes()    # 바이트 객체로 이미지 반환
+
+    cls_num = 1
+
+    example = tf.train.Example(features=tf.train.Features(feature={
+        'image': _bytes_feature(bimage),
+        'cls_num': _int64_feature(cls_num),
+        'x': _float_feature(x),
+        'y': _float_feature(y),
+        'w': _float_feature(w),
+        'h': _float_feature(h)
+    }))
+
+    writer_val.write(example.SerializeToString())
+
+writer_val.close()
+
+#하이퍼파라미터 설정
+N_EPOCHS = 10
+N_BATCH = 16
+IMG_SIZE = 224
+learning_rate = 0.001
+steps_per_epoch = int(N_TRAIN/N_BATCH)
+validation_step = int(np.ceil(N_VAL / N_BATCH))
+
+#데이터셋 생성(TFrecord 읽기)
+def _parse_function(tfrecord_serialized):
+    features = {
+        'image': tf.io.FixedLenFeature([], tf.string),
+        'cls_num': tf.io.FixedLenFeature([], tf.int64),
+        'x': tf.io.FixedLenFeature([], tf.float32),
+        'y': tf.io.FixedLenFeature([], tf.float32),
+        'w': tf.io.FixedLenFeature([], tf.float32),
+        'h': tf.io.FixedLenFeature([], tf.float32)
+    }
+
+    parsed_features = tf.io.parse_single_example(tfrecord_serialized, features)
+
+    image = tf.io.decode_raw(parsed_features['image'], tf.uint8)
+    image = tf.reshape(image, [IMG_SIZE, IMG_SIZE, 3])
+    image = tf.cast(image, tf.float32) / 255.
+
+    cls_label = tf.cast(parsed_features['cls_num'], tf.int64)
+
+    x = tf.cast(parsed_features['x'], tf.float32)
+    y = tf.cast(parsed_features['y'], tf.float32)
+    w = tf.cast(parsed_features['w'], tf.float32)
+    h = tf.cast(parsed_features['h'], tf.float32)
+    gt = tf.stack([x, y, w, h], -1)
+
+    return image, gt
+
+train_dataset = tf.data.TFRecordDataset(tfr_train_dir)
+    # TFRecordDataset() : 생성된 TFRecord 파일을 불러와서 모델 학습 및 추론에 사용하기 위함
+train_dataset = train_dataset.map(_parse_function, num_parallel_calls=tf.data.experimental.AUTOTUNE)
+    # dataset.map() : 입력 데이터셋의 각 원소에 주어진 함수를 적용하여 새로운 데이터셋을 생성
+train_dataset = train_dataset.shuffle(buffer_size=N_TRAIN).prefetch(tf.data.experimental.AUTOTUNE).batch(N_BATCH).repeat()
+    # dataset.shuffle() : 고정 크기의 버퍼를 유지하면서 해당 버퍼에서 다음 요소를 무작위로 선택, 결과 확인
+
+val_dataset = tf.data.TFRecordDataset(tfr_val_dir)
+    # TFRecordDataset() : 생성된 TFRecord 파일을 불러와서 모델 학습 및 추론에 사용하기 위함
+val_dataset = val_dataset.map(_parse_function, num_parallel_calls=tf.data.experimental.AUTOTUNE)
+    # dataset.map() : 입력 데이터셋의 각 원소에 주어진 함수를 적용하여 새로운 데이터셋을 생성
+val_dataset = val_dataset.batch(N_BATCH).repeat()
+    # dataset.batch() : batch 사이즈를 ()로 설정. batch가 없으면 리스트에 담기지 않고 데이터를 하나씩 불러옴.
+
+#모델 생성
+def create_model():
+    model = tf.keras.Sequential()   # keras.Sequential() : 레이어에 스택을 순서대로 만들어서 적용하는 모델
+# 신경망 층을 구성하기위해 Sequential()를 사용한다.
+    model.add(keras.layers.Conv2D(filters=32, kernel_size=3, activation='relu',padding='SAME', input_shape=(IMG_SIZE,IMG_SIZE,3)))
+    #컨볼루션 레이어 (Conv2D)
+# 필터로 입력 데이터의 특징 맵을 추출하고 한 칸 이동하며 연산한다.
+Kenrel_size를 통해 맵의 크기를 조절한다. 
+가로와 세로의 길이가 같으므로 정수 하나만 입력한다. 
+패딩은 출력 데이터의 공간적 크기를 조절하기 위해 사용하며 Valid 혹은 same 값을 받음.
+    model.add(keras.layers.MaxPool2D(padding='SAME'))
+    model.add(keras.layers.Conv2D(filters=64, kernel_size=3, activation='relu',padding='SAME'))
+    model.add(keras.layers.MaxPool2D(padding='SAME'))
+    model.add(keras.layers.Conv2D(filters=128, kernel_size=3, activation='relu',padding='SAME'))
+    model.add(keras.layers.MaxPool2D(padding='SAME'))
+    model.add(keras.layers.Conv2D(filters=256, kernel_size=3, activation='relu',padding='SAME'))
+    model.add(keras.layers.MaxPool2D(padding='SAME'))
+    model.add(keras.layers.Conv2D(filters=256, kernel_size=3, activation='relu',padding='SAME'))
+    model.add(keras.layers.MaxPool2D(padding='SAME'))
+    model.add(keras.layers.Flatten())
+    model.add(keras.layers.Dense(1024))
+    model.add(keras.layers.BatchNormalization())
+    model.add(keras.layers.Activation('relu'))
+    model.add(keras.layers.Dropout(0.2))
+    model.add(keras.layers.Dense(4,activation='sigmoid'))
+    return model
+
+# 오차 함수
+def loss_fn(y_true,y_pred):
+    return keras.losses.MeanSquaredError()(y_true,y_pred)
+        # keras.losses.MeanSquaredError() : 레이블과 예측 사이의 오차의 제곱 평균을 계산
+
+model = create_model()
+model.summary()
+
+# 모델 학습
+lr_schedule = keras.optimizers.schedules.ExponentialDecay(initial_learning_rate=learning_rate, decay_steps=steps_per_epoch*2, decay_rate=0.5, staircase=True)
+    # keras.optimizers.schedules.ExponentialDecay() : 지수 붕괴 스케줄에 사용하는 LaerningRateSchedule
+model.compile(keras.optimizers.RMSprop(lr_schedule),loss=loss_fn, metrics = ['accuracy'], run_eagerly=True)
+    # keras.optimizers.RMSprop() : RMSprop 알고리즘을 수현하는 최적화 프로그램
+        # RMSprop은 기울기를 단순 누적하지 않고 지수 가중 이동 평균을 사용하여 최신 기울기들이 더 크게 반영되도록 함
+
+start = time.time()
+
+hist = model.fit(train_dataset, steps_per_epoch=steps_per_epoch, epochs=N_EPOCHS, validation_data=val_dataset, validation_steps=validation_step)
+
+end = time.time()
+
+# 테스트 데이터셋 생성
+test_dir = os.path.join(data_dir, 'test')
+test_img_files = sorted([imgname for imgname in os.listdir(test_dir) if os.path.splitext(imgname)[-1] == '.jpg'])
+test_ano_files = sorted([anoname for anoname in os.listdir(test_dir) if os.path.splitext(anoname)[-1] == '.xml'])
+    # sorted() : 첫 번째 매개변수로 들어온 반복가능한 데이터를 새로운 정렬된 리스트로 만들어서 반환
+test_dataset_files = list(zip(test_img_files, test_ano_files))
+
+test_x = []
+test_y = []
+
+for img_file, ano_file in tqdm(test_dataset_files):
+    ano_path = os.path.join(test_dir, ano_file)
+    tree = et.parse(ano_path)
+    width = float(tree.find('./size/width').text)
+    height = float(tree.find('./size/height').text)
+    xmin = float(tree.find('./object/bndbox/xmin').text)
+    ymin = float(tree.find('./object/bndbox/ymin').text)
+    xmax = float(tree.find('./object/bndbox/xmax').text)
+    ymax = float(tree.find('./object/bndbox/ymax').text)
+    xc = (xmin + xmax) / 2
+    yc = (ymin + ymax) / 2
+    x = xc / width
+    y = yc / height
+    w = (xmax - xmin) / width
+    h = (ymax - ymin) / height
+
+    img_path = os.path.join(test_dir, img_file)
+    image = Image.open(img_path)
+    image = image.resize((IMG_SIZE, IMG_SIZE))
+    image = tf.cast(np.array(image), tf.float32) / 255.
+    test_x.append(image)
+    test_y.append(np.array([x, y, w, h]))
+
+test_x = np.array(test_x)
+test_y = np.array(test_y)
+
+# 모델 평가
+loss_and_metrics = model.evaluate(test_x, test_y, batch_size=N_BATCH)
+print('## evaluation loss and_metrics ##')
+print(loss_and_metrics)
+
+# 모델 저장
+# 학습된 모델들을 구분하기 위한 키
+filenamekey = int(time.time())
+model.save('./model/Localization_Model{}'.format(filenamekey))
+model.save_weights('./model/Localization_Model_weights{}.h5'.format(filenamekey))
+
+# 모델 요약 저장
+with open('./results/modelsummary_L_{}.txt'.format(filenamekey), 'w') as f:
+    model.summary(print_fn=lambda x: f.write(x + '\n'))
+
+# 학습 과정 시각화
+plt.plot(hist.history['accuracy'], 'b', label='train accuracy')
+plt.plot(hist.history['val_accuracy'], 'g', label='val accuracy')
+plt.ylabel('accuracy')
+plt.legend(loc='upper left')
+plt.text(N_EPOCHS-2,loss_and_metrics[1], 'ta : {}'.format(format(loss_and_metrics[1],".2f")), fontsize=11, bbox=dict(boxstyle='square', color='lightgray'))
+#plt.savefig('/content/gdrive/MyDrive/fire detection/result/graph/figure_L_{}.png'.format(filenamekey))
+plt.savefig('./results/graph/figure_L_{}.png'.format(filenamekey))
+
+# IOU 계산
+test_dataset = list(zip(test_x, test_y))
+N_TEST = len(test_dataset)
+avg_iou = 0
+num_imgs = N_TEST
+
+for i, (test_data, test_gt) in enumerate(test_dataset):
+    flag = (i == N_TEST - 1)
+    x = test_gt[0]
+    y = test_gt[1]
+    w = test_gt[2]
+    h = test_gt[3]
+    test_data = test_data[tf.newaxis, ...]
+    prediction = model.predict(test_data)
+    pred_x = prediction[0][0]
+    pred_y = prediction[0][1]
+    pred_w = prediction[0][2]
+    pred_h = prediction[0][3]
+
+    xmin = int((x - w / 2.) * IMG_SIZE)
+    ymin = int((y - h / 2.) * IMG_SIZE)
+    xmax = int((x + w / 2.) * IMG_SIZE)
+    ymax = int((y + h / 2.) * IMG_SIZE)
+
+    pred_xmin = int((pred_x - pred_w / 2.) * IMG_SIZE)
+    pred_ymin = int((pred_y - pred_h / 2.) * IMG_SIZE)
+    pred_xmax = int((pred_x + pred_w / 2.) * IMG_SIZE)
+    pred_ymax = int((pred_y + pred_h / 2.) * IMG_SIZE)
+
+    if xmin > pred_xmax or xmax < pred_xmin or ymin > pred_ymax or ymax < pred_ymin:
+        continue
+    w_union = np.max((xmax, pred_xmax)) - np.min((xmin, pred_xmin))
+    h_union = np.max((ymax, pred_ymax)) - np.min((ymin, pred_ymin))
+    w_inter = np.min((xmax, pred_xmax)) - np.max((xmin, pred_xmin))
+    h_inter = np.min((ymax, pred_ymax)) - np.max((ymin, pred_ymin))
+
+    w_sub1 = np.abs(xmax - pred_xmax)
+    h_sub1 = np.abs(ymax - pred_ymax)
+    w_sub2 = np.abs(xmin - pred_xmin)
+    h_sub2 = np.abs(ymin - pred_ymin)
+
+    iou = (w_inter * h_inter) / ((w_union * h_union) - (w_sub1 * h_sub1) - (w_sub2 * h_sub2))
+    avg_iou += iou
+avg_iou = avg_iou / N_TEST
+
+# 학습결과 저장
+# 학습 결과 저장용 데이터프레임 생성
+data = DataFrame(columns=['key','train data len',
+                          'validation data len',
+                          'EPOCHS',
+                          'learning_rate_schedule',
+                          'batch size',
+                          'loss_func',
+                          'optimizer',
+                          'comment',
+                          'test_accuracy',
+                          'MeanIOU'
+                          'train time'
+                         ])
+
+data = pd.read_csv('./results/HyperParameter_L.csv',encoding='euc-kr')
+data = data.append({'key':filenamekey,
+                    'train data len': N_TRAIN,
+                    "validation data len":N_VAL,
+                    "EPOCHS":N_EPOCHS,
+                    "learning_rate_schedule":"ExponentialDecay(initial_learning_rate={},decay_steps={},decay_rate=0.5,staircase=True)".format(learning_rate,steps_per_epoch*2),
+                    "batch size":N_BATCH,
+                    "loss_func":'MSE',
+                    "optimizer":"RMSprop",
+                    "comment": "초기 모델 + 데이터변경 + 데이터증강 + 배치정규화 + Dropout 0.4->0.2 + 출력층sigmoid",
+                    "test_accuracy":loss_and_metrics[1],
+                    "MeanIOU":avg_iou,
+                    "train time":format(end-start, ".2f")},ignore_index=True)
+
+#data.to_csv('/content/gdrive/MyDrive/fire detection/result/HyperParameter_L.csv',encoding='euc-kr')
+data.to_csv('./results/HyperParameter_L.csv',encoding='euc-kr',index=False)
+message.txt
+18KB
