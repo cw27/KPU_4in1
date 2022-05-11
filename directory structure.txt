@@ -12,7 +12,8 @@
 			<2>
 		imageAnnotationProcess.py
 	</images>
-classes.txt
-DuplicatedImageRemover.py
-Image_crawling.py
-ImageAnnotationHelper.py
+	ImageSorter.py
+	classes.txt
+	DuplicatedImageRemover.py
+	Image_crawling.py
+	ImageAnnotationHelper.py
