@@ -1,4 +1,4 @@
-<tutorial>IDE로컬폴더
+<CNN>IDE로컬폴더
 	<images>
 		<0>일반이미지
 			Imgaesorter.py
