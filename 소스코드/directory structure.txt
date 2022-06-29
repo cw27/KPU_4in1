@@ -1,19 +1,39 @@
 <tutorial>IDE로컬폴더
 	<images>
 		<0>일반이미지
+			Imgaesorter.py
+		</0>
 		<1>화재이미지
+			Imagesorter.py
+		</1>
 		<2>연기이미지
+			Imagesorter.py
+		</2>
 		<annotated>
 			<test>
 			<train>
+		</annotated>
 		<test>
 			<0>
 			<1>
 			<2>
+		</test>
 		imageAnnotationProcess.py
 	</images>
-	ImageSorter.py
+	<model>
+	</model>
+	<results>
+		<graph>
+		</graph>
+	</results>
+	<video>
+		<CCTV> 
+			fire and smoke.mp4
+		</CCTV>
 	classes.txt
 	DuplicatedImageRemover.py
 	Image_crawling.py
 	ImageAnnotationHelper.py
+	AI_Module.py
+	Fire_Classification.py
+	Fire_Localization.py
